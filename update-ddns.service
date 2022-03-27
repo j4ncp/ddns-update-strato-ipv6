@@ -1,0 +1,11 @@
+[Unit]
+Description=Updates the dyndns endpoint for this device
+Wants=update-ddns.timer
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/local/bin/update-ddns.sh --name DOMAIN --pass PASSWD
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run update-ddns every day at 4am
+Requires=update-ddns.service
+
+[Timer]
+Unit=update-ddns.service
+Persistent=true
+OnCalendar=*-*-* 4:00:00
+
+[Install]
+WantedBy=timers.target
